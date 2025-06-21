@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaiswal Super Mart - Groceries Delivered in Minutes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .offer-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            transform: rotate(15deg);
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+        .category-card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation Bar -->
+<!-- Navbar -->
+<nav class="bg-white shadow-md sticky top-0 z-50">
+  <div class="container mx-auto px-4 py-2 md:py-5 flex justify-between items-center">
+    <!-- Left: Logo + Menu -->
+    <div class="flex items-center space-x-6">
+      <!-- Logo -->
+      <a href="#" class="md:text-2xl text-xl font-bold">
+        <span class="text-green-600">Jaiswal</span>
+        <span class="text-gray-800">Super Mart</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <div class="hidden md:flex space-x-4">
+        <a href="#" class="text-sm text-gray-800 hover:text-green-600 font-medium">Home</a>
+        <a href="#" class="text-sm text-gray-800 hover:text-green-600 font-medium">Categories</a>
+        <a href="#" class="text-sm text-gray-800 hover:text-green-600 font-medium">Deals</a>
+        <a href="#" class="text-sm text-gray-800 hover:text-green-600 font-medium">Track Order</a>
+        <a href="#" class="text-sm text-gray-800 hover:text-green-600 font-medium">Contact</a>
+      </div>
+    </div>
+
+    <!-- Right: Location + Cart + Login -->
+    <div class="flex items-center space-x-3">
+      <!-- Location Selector -->
+      <select class="bg-gray-100 text-gray-700 rounded-full px-3 py-1 text-xs sm:text-sm focus:outline-none">
+        <option>Delivering in Prayagraj</option>
+        <option>Allahabad</option>
+        <option>Karchana</option>
+      </select>
+
+      <!-- Cart -->
+      <div class="relative">
+        <i class="fas fa-shopping-cart text-gray-700 text-lg sm:text-xl"></i>
+        <span class="absolute -top-2 -right-2 bg-green-600 text-white text-xs font-bold rounded-full h-4 w-4 flex items-center justify-center">3</span>
+      </div>
+
+      <!-- Login / Account -->
+      <button class="hidden sm:flex items-center space-x-1 bg-green-600 hover:bg-green-700 text-white px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm font-medium transition">
+        <i class="fas fa-user text-sm"></i>
+        <span>Login</span>
+      </button>
+
+      <!-- Hamburger for Mobile -->
+      <button id="mobile-menu-toggle" class="md:hidden text-gray-700">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden px-4 pb-4">
+    <div class="space-y-2 mt-2">
+      <a href="#" class="block text-gray-800 hover:text-green-600 text-sm font-medium">Home</a>
+      <a href="#" class="block text-gray-800 hover:text-green-600 text-sm font-medium">Categories</a>
+      <a href="#" class="block text-gray-800 hover:text-green-600 text-sm font-medium">Deals</a>
+      <a href="#" class="block text-gray-800 hover:text-green-600 text-sm font-medium">Track Order</a>
+      <a href="#" class="block text-gray-800 hover:text-green-600 text-sm font-medium">Contact</a>
+      <button class="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm font-medium">
+        <i class="fas fa-user"></i>
+        <span>Login / Account</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+
+    <!-- Hero Section -->
+    <section class="bg-green-50 py-12">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Groceries Delivered in <span class="text-green-600">Minutes!</span></h1>
+                <p class="text-lg text-gray-600 mb-6">Fresh, fast, and affordable from your trusted local store.</p>
+                <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+                    <button class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full font-medium transition duration-300">
+                        Start Shopping
+                    </button>
+                    <button class="border-2 border-green-600 text-green-600 hover:bg-green-50 px-6 py-3 rounded-full font-medium transition duration-300">
+                        Browse Products
+                    </button>
+                </div>
+                <div class="mt-8 relative max-w-md">
+                    <input type="text" placeholder="Search for milk, bread, fruits..." class="w-full px-4 py-3 rounded-full border-2 border-gray-200 focus:outline-none focus:border-green-500">
+                    <button class="absolute right-2 top-2 bg-green-600 text-white p-2 rounded-full">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="https://images.pexels.com/photos/6969971/pexels-photo-6969971.jpeg" alt="Delivery Person" class="w-full max-w-md rounded-lg">
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="py-12 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 text-center">Shop by Categories</h2>
+
+    <div class="flex overflow-x-auto sm:grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 sm:gap-4 space-x-3 sm:space-x-0 scrollbar-hide">
+      
+      <!-- Category 1 -->
+      <div class="category-card flex-shrink-0 w-28 sm:w-36 bg-white rounded-lg shadow-sm p-3 sm:p-4 text-center transition duration-300 cursor-pointer">
+        <div class="bg-green-100 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3">
+          <i class="fas fa-apple-alt text-green-600 text-lg sm:text-2xl"></i>
+        </div>
+        <h3 class="text-xs sm:text-sm font-medium text-gray-800">Fruits & Vegetables</h3>
+      </div>
+
+      <!-- Category 2 -->
+      <div class="category-card flex-shrink-0 w-28 sm:w-36 bg-white rounded-lg shadow-sm p-3 sm:p-4 text-center transition duration-300 cursor-pointer">
+        <div class="bg-green-100 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3">
+          <i class="fas fa-bread-slice text-green-600 text-lg sm:text-2xl"></i>
+        </div>
+        <h3 class="text-xs sm:text-sm font-medium text-gray-800">Bakery, Dairy & Eggs</h3>
+      </div>
+
+      <!-- Category 3 -->
+      <div class="category-card flex-shrink-0 w-28 sm:w-36 bg-white rounded-lg shadow-sm p-3 sm:p-4 text-center transition duration-300 cursor-pointer">
+        <div class="bg-green-100 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3">
+          <i class="fas fa-cookie text-green-600 text-lg sm:text-2xl"></i>
+        </div>
+        <h3 class="text-xs sm:text-sm font-medium text-gray-800">Snacks & Beverages</h3>
+      </div>
+
+      <!-- Category 4 -->
+      <div class="category-card flex-shrink-0 w-28 sm:w-36 bg-white rounded-lg shadow-sm p-3 sm:p-4 text-center transition duration-300 cursor-pointer">
+        <div class="bg-green-100 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3">
+          <i class="fas fa-broom text-green-600 text-lg sm:text-2xl"></i>
+        </div>
+        <h3 class="text-xs sm:text-sm font-medium text-gray-800">Cleaning & Household</h3>
+      </div>
+
+      <!-- Category 5 -->
+      <div class="category-card flex-shrink-0 w-28 sm:w-36 bg-white rounded-lg shadow-sm p-3 sm:p-4 text-center transition duration-300 cursor-pointer">
+        <div class="bg-green-100 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3">
+          <i class="fas fa-soap text-green-600 text-lg sm:text-2xl"></i>
+        </div>
+        <h3 class="text-xs sm:text-sm font-medium text-gray-800">Personal Care</h3>
+      </div>
+
+      <!-- Category 6 -->
+      <div class="category-card flex-shrink-0 w-28 sm:w-36 bg-white rounded-lg shadow-sm p-3 sm:p-4 text-center transition duration-300 cursor-pointer">
+        <div class="bg-green-100 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3">
+          <i class="fas fa-baby text-green-600 text-lg sm:text-2xl"></i>
+        </div>
+        <h3 class="text-xs sm:text-sm font-medium text-gray-800">Baby & Pet Care</h3>
+      </div>
+
+      <!-- Category 7 -->
+      <div class="category-card flex-shrink-0 w-28 sm:w-36 bg-white rounded-lg shadow-sm p-3 sm:p-4 text-center transition duration-300 cursor-pointer">
+        <div class="bg-green-100 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3">
+          <i class="fas fa-mortar-pestle text-green-600 text-lg sm:text-2xl"></i>
+        </div>
+        <h3 class="text-xs sm:text-sm font-medium text-gray-800">Cooking Essentials</h3>
+      </div>
+
+      <!-- Category 8 -->
+      <div class="category-card flex-shrink-0 w-28 sm:w-36 bg-white rounded-lg shadow-sm p-3 sm:p-4 text-center transition duration-300 cursor-pointer">
+        <div class="bg-green-100 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3">
+          <i class="fas fa-utensils text-green-600 text-lg sm:text-2xl"></i>
+        </div>
+        <h3 class="text-xs sm:text-sm font-medium text-gray-800">Instant Food</h3>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+    <!-- Offers Section -->
+    <section class="py-12 bg-green-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Deals of the Day</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Offer 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden relative">
+                    <div class="offer-badge bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">50% OFF</div>
+                    <img src="https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg" alt="Offer" class="w-full h-40 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">Fresh Vegetables Combo</h3>
+                        <p class="text-gray-600 mb-2">Get 50% off on selected vegetables</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-green-600">₹199 <span class="text-gray-500 text-sm line-through">₹399</span></span>
+                            <button class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-full text-sm transition duration-300">
+                                Shop Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Offer 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden relative">
+                    <div class="offer-badge bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-bold">B1G1</div>
+                    <img src="https://images.pexels.com/photos/1582482/pexels-photo-1582482.jpeg" alt="Offer" class="w-full h-40 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">Snacks Combo Pack</h3>
+                        <p class="text-gray-600 mb-2">Buy 1 Get 1 Free on selected snacks</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-green-600">₹99 <span class="text-gray-500 text-sm line-through">₹198</span></span>
+                            <button class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-full text-sm transition duration-300">
+                                Shop Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Offer 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden relative">
+                    <div class="offer-badge bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">₹100 OFF</div>
+                    <img src="https://cdn.pixabay.com/photo/2017/06/01/18/46/cook-2364221_1280.jpg" alt="Offer" class="w-full h-40 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">Cooking Essentials</h3>
+                        <p class="text-gray-600 mb-2">Get ₹100 off on first order</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-green-600">₹299 <span class="text-gray-500 text-sm line-through">₹399</span></span>
+                            <button class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-full text-sm transition duration-300">
+                                Shop Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Offer 4 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden relative">
+                    <div class="offer-badge bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-bold">FREE</div>
+                    <img src="https://cdn.pixabay.com/photo/2015/05/07/15/08/cookie-756601_1280.jpg" alt="Offer" class="w-full h-40 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">Cookie Pack</h3>
+                        <p class="text-gray-600 mb-2">Free delivery on orders above ₹499</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-green-600">₹149</span>
+                            <button class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-full text-sm transition duration-300">
+                                Shop Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+   <section class="py-12 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Trending Products</h2>
+    <div class="relative">
+      <div id="product-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const products = [
+    {
+      name: "Fresh Apples (1kg)",
+      price: "₹129",
+      rating: 4.5,
+      reviews: 42,
+      image: "https://images.pexels.com/photos/672101/pexels-photo-672101.jpeg"
+    },
+    {
+      name: "Amul Milk (1L)",
+      price: "₹58",
+      rating: 5,
+      reviews: 156,
+      image: "https://imgs.search.brave.com/9wLXFsFVlhB2dmFet_vJEjUn7nOn_wX2wbusE65kDSc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzE0LzA4LzE4LzIz/LzM2MF9GXzE0MDgx/ODIzMzdfd0ZqWnBr/ZXFWMTBaTHNYOUhv/ZU1Ec0ZYalFKNEM2/T3cuanBn"
+    },
+    {
+      name: "Britannia Bread (400g)",
+      price: "₹35",
+      rating: 4,
+      reviews: 89,
+      image: "https://images.pexels.com/photos/1775043/pexels-photo-1775043.jpeg"
+    },
+    {
+      name: "Kellogg's Corn Flakes (500g)",
+      price: "₹199",
+      rating: 4.5,
+      reviews: 67,
+      image: "https://cdn.pixabay.com/photo/2014/12/11/02/55/cereal-563796_1280.jpg"
+    },
+    {
+      name: "Veg Burger Pack (4pcs)",
+      price: "₹149",
+      rating: 4,
+      reviews: 34,
+      image: "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_1280.jpg"
+    },
+    {
+      name: "Fresh Apples (1kg)",
+      price: "₹129",
+      rating: 4.5,
+      reviews: 42,
+      image: "https://images.pexels.com/photos/672101/pexels-photo-672101.jpeg"
+    },
+    {
+      name: "Amul Milk (1L)",
+      price: "₹58",
+      rating: 5,
+      reviews: 156,
+      image: "https://imgs.search.brave.com/9wLXFsFVlhB2dmFet_vJEjUn7nOn_wX2wbusE65kDSc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzE0LzA4LzE4LzIz/LzM2MF9GXzE0MDgx/ODIzMzdfd0ZqWnBr/ZXFWMTBaTHNYOUhv/ZU1Ec0ZYalFKNEM2/T3cuanBn"
+    },
+    {
+      name: "Britannia Bread (400g)",
+      price: "₹35",
+      rating: 4,
+      reviews: 89,
+      image: "https://images.pexels.com/photos/1775043/pexels-photo-1775043.jpeg"
+    },
+    {
+      name: "Kellogg's Corn Flakes (500g)",
+      price: "₹199",
+      rating: 4.5,
+      reviews: 67,
+      image: "https://cdn.pixabay.com/photo/2014/12/11/02/55/cereal-563796_1280.jpg"
+    },
+    {
+      name: "Veg Burger Pack (4pcs)",
+      price: "₹149",
+      rating: 4,
+      reviews: 34,
+      image: "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_1280.jpg"
+    }
+  ];
+
+  const productGrid = document.getElementById("product-grid");
+
+  products.forEach(product => {
+    productGrid.innerHTML += `
+      <div class="product-card bg-white rounded-lg shadow-sm p-4 w-full transition duration-300 flex flex-col justify-between min-h-[340px]">
+        <div>
+          <div class="relative mb-3 h-40 flex items-center justify-center">
+            <img src="${product.image}" alt="${product.name}" class="h-full object-contain rounded-lg">
+            <button class="absolute bottom-2 right-2 bg-green-600 text-white p-2 rounded-full hover:bg-green-700 transition duration-300">
+              <i class="fas fa-cart-plus"></i>
+            </button>
+          </div>
+          <h3 class="font-medium text-gray-800 text-sm sm:text-base mb-1">${product.name}</h3>
+          <div class="flex items-center mb-1">
+            <div class="flex text-yellow-400 text-sm">
+              ${generateStars(product.rating)}
+            </div>
+            <span class="text-gray-500 text-xs ml-1">(${product.reviews})</span>
+          </div>
+        </div>
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-1 pt-1 sm:pt-2">
+          <span class="font-bold text-green-600 text-sm sm:text-base">${product.price}</span>
+          <button class="bg-green-100 text-green-600 hover:bg-green-200 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm transition duration-300 whitespace-nowrap w-full sm:w-auto text-center">
+            Add to Cart
+          </button>
+        </div>
+      </div>`;
+  });
+
+  function generateStars(rating) {
+    const fullStars = Math.floor(rating);
+    const halfStar = rating % 1 !== 0;
+    let stars = '';
+    for (let i = 0; i < fullStars; i++) stars += '<i class="fas fa-star"></i>';
+    if (halfStar) stars += '<i class="fas fa-star-half-alt"></i>';
+    for (let i = fullStars + halfStar; i < 5; i++) stars += '<i class="far fa-star"></i>';
+    return stars;
+  }
+</script>
+
+
+    <!-- Why Choose Us -->
+    <section class="py-12 bg-green-50">
+  <div class="container mx-auto px-4">
+    <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-8 text-center">
+      Why Choose Jaiswal Super Mart?
+    </h2>
+    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 px-2">
+      
+      <!-- Feature 1 -->
+      <div class="bg-white rounded-lg shadow p-3 sm:p-5 text-center">
+        <div class="bg-green-100 w-10 h-10 sm:w-14 sm:h-14 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-4">
+          <i class="fas fa-truck text-green-600 text-lg sm:text-2xl"></i>
+        </div>
+        <h3 class="font-bold text-sm sm:text-lg mb-1">Superfast Delivery</h3>
+        <p class="text-gray-600 text-xs sm:text-base">
+          Get your groceries delivered in as fast as 10 minutes
+        </p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="bg-white rounded-lg shadow p-3 sm:p-5 text-center">
+        <div class="bg-green-100 w-10 h-10 sm:w-14 sm:h-14 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-4">
+          <i class="fas fa-leaf text-green-600 text-lg sm:text-2xl"></i>
+        </div>
+        <h3 class="font-bold text-sm sm:text-lg mb-1">Fresh Products</h3>
+        <p class="text-gray-600 text-xs sm:text-base">
+          Direct from local farms and trusted suppliers
+        </p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="bg-white rounded-lg shadow p-3 sm:p-5 text-center">
+        <div class="bg-green-100 w-10 h-10 sm:w-14 sm:h-14 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-4">
+          <i class="fas fa-exchange-alt text-green-600 text-lg sm:text-2xl"></i>
+        </div>
+        <h3 class="font-bold text-sm sm:text-lg mb-1">Easy Returns</h3>
+        <p class="text-gray-600 text-xs sm:text-base">
+          Hassle-free returns within 24 hours
+        </p>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="bg-white rounded-lg shadow p-3 sm:p-5 text-center">
+        <div class="bg-green-100 w-10 h-10 sm:w-14 sm:h-14 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-4">
+          <i class="fas fa-shield-alt text-green-600 text-lg sm:text-2xl"></i>
+        </div>
+        <h3 class="font-bold text-sm sm:text-lg mb-1">Safe Payments</h3>
+        <p class="text-gray-600 text-xs sm:text-base">
+          100% secure payment options
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+    <!-- Testimonials -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-12 text-center">What Our Customers Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-white rounded-lg shadow-sm p-6 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-gray-500 text-sm">2 days ago</span>
+                    </div>
+                    <p class="text-gray-700 mb-4">"The fastest grocery delivery I've ever experienced! Ordered at 6pm and had my groceries by 6:15pm. Everything was fresh and exactly as ordered."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Customer" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-bold">Priya Sharma</h4>
+                            <p class="text-gray-500 text-sm">Civil Lines, Prayagraj</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-white rounded-lg shadow-sm p-6 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="text-gray-500 text-sm">1 week ago</span>
+                    </div>
+                    <p class="text-gray-700 mb-4">"Great prices and excellent customer service. Had an issue with one item and they refunded immediately without any questions. Will definitely order again!"</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Customer" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-bold">Rahul Verma</h4>
+                            <p class="text-gray-500 text-sm">Allenganj, Prayagraj</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-white rounded-lg shadow-sm p-6 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-gray-500 text-sm">3 days ago</span>
+                    </div>
+                    <p class="text-gray-700 mb-4">"The quality of vegetables is amazing! Much better than what I get at the local market. Plus the convenience of home delivery is unbeatable."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Customer" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-bold">Anjali Patel</h4>
+                            <p class="text-gray-500 text-sm">George Town, Prayagraj</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Promotion -->
+    <section class="py-12 bg-green-600 text-white">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <h2 class="text-3xl font-bold mb-4">Coming Soon on Mobile!</h2>
+                <p class="text-lg mb-6">Download our app for exclusive offers and faster checkout experience.</p>
+                <div class="flex space-x-4">
+                    <button class="bg-black hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-medium transition duration-300 flex items-center">
+                        <i class="fab fa-google-play text-2xl mr-2"></i>
+                        <div class="text-left">
+                            <span class="text-xs block">GET IT ON</span>
+                            <span class="text-lg">Google Play</span>
+                        </div>
+                    </button>
+                    <button class="bg-black hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-medium transition duration-300 flex items-center">
+                        <i class="fab fa-apple text-2xl mr-2"></i>
+                        <div class="text-left">
+                            <span class="text-xs block">Download on the</span>
+                            <span class="text-lg">App Store</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="https://cdn.pixabay.com/photo/2017/01/22/12/07/imac-1999636_1280.png" alt="App Screenshot" class="w-full max-w-md mix-blend-multiply bg-gray-50">
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="bg-green-50 rounded-xl p-8 md:p-12 text-center">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Get 10% Off Your First Order!</h2>
+                <p class="text-gray-600 mb-6">Subscribe to our newsletter and receive exclusive offers and updates.</p>
+                <div class="flex flex-col sm:flex-row justify-center max-w-md mx-auto">
+                    <input type="email" placeholder="Enter your email" class="px-4 py-3 rounded-full border-2 border-gray-200 focus:outline-none focus:border-green-500 mb-3 sm:mb-0 sm:mr-3 flex-grow">
+                    <button class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full font-medium transition duration-300">
+                        Subscribe
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <!-- Column 1 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Jaiswal Super Mart</h3>
+                    <p class="text-gray-400 mb-4">Your trusted local grocery store delivering fresh products at your doorstep in minutes.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Column 2 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Shop</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">FAQ</a></li>
+                    </ul>
+                </div>
+                <!-- Column 3 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Categories</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Fruits & Vegetables</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Dairy & Eggs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Beverages</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Snacks</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Household</a></li>
+                    </ul>
+                </div>
+                <!-- Column 4 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-map-marker-alt mr-2"></i> 123 Market Street, Prayagraj
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-phone-alt mr-2"></i> +91 9876543210
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-envelope mr-2"></i> hello@jaiswalsupermart.com
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fab fa-whatsapp mr-2"></i> +91 9876543210
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 Jaiswal Super Mart. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Terms & Conditions</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Return Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script for mobile menu toggle (can be expanded)
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('.md\\:hidden');
+            const mobileMenu = document.querySelector('.md\\:flex');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('flex');
+                mobileMenu.classList.toggle('flex-col');
+                mobileMenu.classList.toggle('absolute');
+                mobileMenu.classList.toggle('top-16');
+                mobileMenu.classList.toggle('left-0');
+                mobileMenu.classList.toggle('right-0');
+                mobileMenu.classList.toggle('bg-white');
+                mobileMenu.classList.toggle('p-4');
+                mobileMenu.classList.toggle('shadow-md');
+            });
+            
+            // Simple product card hover effect
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+                });
+            });
+        });
+    </script>
+ 
+
+</body>
+</html>
